@@ -63,6 +63,46 @@ public class CardGame {
 		System.out.println("the deck");
 		cardList.displayList();
 
+
+        //added code - computer hand
+        Card[] computerHand = new Card[5];
+        for(int i = 0; i < computerHand.length; i++)
+            computerHand[i] = cardList.getFirst();
+        
+        System.out.println("computer hand");
+        for(int i = 0; i < computerHand.length; i++)
+            System.out.println(computerHand[i]);
+        
+        System.out.println();
+        System.out.println("the deck");
+        cardList.displayList();
+       
+        //ADDED CODE BELOW
+
+        //gather the top card's information from each deck
+        Card topPlayerHand = playerHand[0];
+        Card topComputerHand = computerHand[0];
+
+        System.out.println("Top Player Card: " + topPlayerHand +
+        "\nTop Computer Hand: " + topComputerHand + "\nComparing Values...");
+
+        //compare card values to determine higher valued card
+        if (topPlayerHand.getCardValue() > topComputerHand.getCardValue()) {
+            System.out.println("Player won with value of " + topPlayerHand.getCardValue()
+            + ". Computer lost with value of " + topComputerHand.getCardValue() + ".");
+        }
+
+        else if (topPlayerHand.getCardValue() < topComputerHand.getCardValue()) {
+            System.out.println("Computer won with value of " + topComputerHand.getCardValue()
+            + ". Player lost with value of " + topPlayerHand.getCardValue() + ".");
+        }
+
+        //last if statement in case of error
+        else {
+            System.out.println("Error.");
+        }
+
+
 	}//end main
 
 }//end class
